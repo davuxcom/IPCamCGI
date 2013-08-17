@@ -1,0 +1,69 @@
+﻿<Window x:Class="FoscamControllerWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="309" Width="257">
+    <Grid>
+        <DockPanel>
+            <DockPanel DockPanel.Dock="Bottom">
+                <DockPanel DockPanel.Dock="Top">
+                    <Label Content="Brightness" />
+                    <Slider Maximum="255" SmallChange="16" LargeChange="32" Minimum="0" Value="{Binding Path=Brightness, UpdateSourceTrigger=LostFocus}" />
+                </DockPanel>
+                <DockPanel DockPanel.Dock="Top">
+                    <Label Content="Contrast" />
+                    <Slider DockPanel.Dock="Bottom" Maximum="6" Minimum="0" Value="{Binding Path=Contrast, UpdateSourceTrigger=LostFocus}" />
+                </DockPanel>
+                <DockPanel DockPanel.Dock="Top">
+                    <StackPanel Margin="5" Orientation="Horizontal">
+                        <Button Name="btnHz50" Margin="2" Padding="3" Content="50Hz" Click="btnHz50_Click" />
+                        <Button Name="btnHz60" Margin="2" Padding="3" Content="60Hz" Click="btnHz60_Click" />
+                        <Button Name="btnHzOutdoor" Margin="2" Padding="3" Content="Outdoor" Click="btnHzOutdoor_Click" />
+                        <Button Name="btnVGA" Margin="2" Padding="3" Content="VGA" Click="btnVGA_Click" />
+                        <Button Name="btnQVGA" Margin="2" Padding="3" Content="QVGA" Click="btnQVGA_Click" />
+                    </StackPanel>
+                </DockPanel>
+            </DockPanel>
+            <Grid Margin="0,0,0,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Name="btnUp" PreviewMouseDown="btnUp_MouseDown" PreviewMouseUp="btnUp_MouseUp" Grid.Row="0" Grid.Column="1">
+                    <Button.Content>
+                        <Polygon Points="0.5,0 1,1, 0,1"
+                              Fill="Black" Stretch="Fill" />
+                    </Button.Content>
+                </Button>
+                <Button Name="btnLeft" PreviewMouseDown="btnLeft_MouseDown" PreviewMouseUp="btnLeft_MouseUp" Grid.Row="1" Grid.Column="0">
+                    <Button.Content>
+                        <Polygon Points="0,0.5 1,0 1,1"
+                              Fill="Black" Stretch="Fill" />
+                    </Button.Content>
+                </Button>
+                <Button Name="btnStop" PreviewMouseDown="btnStop_MouseDown" PreviewMouseUp="btnStop_MouseUp" Grid.Row="1" Grid.Column="1">
+                    <Button.Content>
+                        Center
+                    </Button.Content>
+                </Button>
+                <Button Name="btnRight" PreviewMouseDown="btnRight_MouseDown" PreviewMouseUp="btnRight_MouseUp" Grid.Row="1" Grid.Column="2">
+                    <Button.Content>
+                        <Polygon Points="0.5,0 1,0.5, .5,1"
+                              Fill="Black" Stretch="Fill" />
+                    </Button.Content>
+                </Button>
+                <Button Name="btnDown" PreviewMouseDown="btnDown_MouseDown" PreviewMouseUp="btnDown_MouseUp" Grid.Row="2" Grid.Column="1">
+                    <Button.Content>
+                        <Polygon Points="0,0.5 1,0.5, .5,1"
+                              Fill="Black" Stretch="Fill" />
+                    </Button.Content>
+                </Button>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>
